@@ -1,3 +1,21 @@
-<li (click)="onContactSelect()">
-{{contact.firstName}} {{contact.lastName}}
-</li>
+<mat-card class="example-card">
+  <mat-card-header>
+
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title><b>{{contact.firstName}} {{contact.lastName}}</b></mat-card-title>
+    <mat-card-subtitle><mat-icon>contact_phone</mat-icon>{{contact.phoneNumber}}</mat-card-subtitle>
+    <mat-card-subtitle><mat-icon>email</mat-icon>{{contact.emailAddress}}</mat-card-subtitle>
+    <mat-card-subtitle><mat-icon >arrow_forward</mat-icon>{{contact.streetAddress}}</mat-card-subtitle>
+    <mat-card-subtitle> <mat-icon>location_city</mat-icon>{{contact.city}}</mat-card-subtitle>
+
+  </mat-card-header>
+  <mat-card-content>
+
+    <p>
+
+    </p>
+  </mat-card-content>
+  <mat-icon onclick="onDelete()">delete_forever</mat-icon>
+
+
+</mat-card>

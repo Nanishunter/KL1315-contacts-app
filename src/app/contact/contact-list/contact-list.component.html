@@ -1,4 +1,18 @@
-<ul>
-  <app-contact-list-item *ngFor="let contact of contacts" [contact]="contact" (contactSelect)="onContactSelect(contact)"></app-contact-list-item>
-</ul>
 
+
+<div fxLayout="row">
+
+
+
+
+
+  <app-contact-list-item *ngFor="let contact of contacts" [contact]="contact" (contactSelect)="onContactSelect(contact)">
+
+
+
+
+  </app-contact-list-item>
+
+
+
+</div>
