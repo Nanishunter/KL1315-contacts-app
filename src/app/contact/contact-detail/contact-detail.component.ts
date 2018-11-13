@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router, Routes} from '@angular/router';
 import {ContactService} from '../service/contact.service';
 import {Contact} from '../contact';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-contact-detail',
@@ -10,7 +11,7 @@ import {Contact} from '../contact';
 })
 export class ContactDetailComponent implements OnInit {
 
-  constructor(private route: Router, private router: ActivatedRoute, private contactService: ContactService) {
+  constructor(private route: Router, private router: ActivatedRoute, private contactService: ContactService,  private snackbar: MatSnackBar) {
 
 }
 
@@ -19,6 +20,9 @@ export class ContactDetailComponent implements OnInit {
   }
   onSave() {
     this.route.navigate(['/contacts']);
+    console.log('Save success');
+    this.snackbar.open('Created contact!', 'OK', {duration: 3000});
+
   }
 
 }

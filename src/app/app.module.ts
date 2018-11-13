@@ -6,11 +6,20 @@ import { ContactListItemComponent } from './contact/contact-list-item/contact-li
 import {ContactService} from './contact/service/contact.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToolbarComponent } from './ui/toolbar/toolbar/toolbar.component';
-import {MatButtonModule, MatSidenavModule, MatToolbarModule, MatCardModule, MatListModule, MatFormFieldModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatSidenavModule,
+  MatToolbarModule,
+  MatCardModule,
+  MatListModule,
+  MatFormFieldModule,
+  MatSnackBar
+} from '@angular/material';
 import {MatIconModule} from '@angular/material/icon';
 import {RouterModule, Routes} from '@angular/router';
 import { ContactDetailComponent } from './contact/contact-detail/contact-detail.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 const appRoutes: Routes = [
   {path: 'contacts', component: ContactListComponent},
@@ -38,7 +47,8 @@ const appRoutes: Routes = [
     MatListModule,
     RouterModule.forRoot(appRoutes),
     MatFormFieldModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatSnackBarModule
 
   ],
   providers: [ContactService],
