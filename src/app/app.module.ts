@@ -9,7 +9,12 @@ import { ToolbarComponent } from './ui/toolbar/toolbar/toolbar.component';
 import {MatButtonModule, MatSidenavModule, MatToolbarModule, MatCardModule, MatListModule} from '@angular/material';
 import {MatIconModule} from '@angular/material/icon';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {RouterModule, Routes} from '@angular/router';
 
+const appRoutes: Routes = [
+  {path: 'contacts', component: ContactListComponent},
+  {path: 'contacts/new', component: ContactListComponent}
+]
 
 
 @NgModule({
@@ -29,6 +34,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MatCardModule,
     MatListModule,
     FlexLayoutModule,
+    RouterModule.forRoot(appRoutes)
 
   ],
   providers: [ContactService],

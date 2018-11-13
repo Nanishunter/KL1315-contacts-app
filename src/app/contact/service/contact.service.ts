@@ -3,7 +3,6 @@ import {Contact} from '../contact';
 import {Observable} from 'rxjs';
 
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -26,9 +25,22 @@ export class ContactService {
   getContacts(): Contact[] {
     return this.contacts;
   }
-  deleteContact(contacts: Contact): any {
-    // @ts-ignore
-    this.contacts.push(delete contacts.firstName);
-    console.log('Contactin poisto onnistui');
+
+  deleteContact(id: number) {
+
+    for (const contact of this.contacts) {
+      if (contact.id === id) {
+        this.contacts.splice(this.contacts.indexOf(contact), 1);
+        console.log('delete success');
+      }
+    }
+
+
+  }
+
+  createContact(id: number) {
+
+
+
   }
 }

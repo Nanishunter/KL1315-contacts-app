@@ -24,7 +24,7 @@ export class ContactListItemComponent implements OnInit {
     this.contactSelect.emit();
   }
   onDelete() {
-    this.contactService.deleteContact(this.contact);
+    this.contactService.deleteContact(this.contact.id);
     console.log('poisto onnistui');
   }
 }
