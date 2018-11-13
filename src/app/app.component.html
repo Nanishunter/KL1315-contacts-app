@@ -12,7 +12,7 @@
   </mat-sidenav>
   <mat-sidenav-content class="app-sidenav-content">
     <app-toolbar (menuClick)="sidenav.toggle()"></app-toolbar>
-    <app-contact-list></app-contact-list>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
-<router-outlet></router-outlet>
+
