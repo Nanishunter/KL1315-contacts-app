@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Contact} from '../contact';
 import {ContactService} from '../service/contact.service';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-contact-list-item',
@@ -12,7 +13,7 @@ export class ContactListItemComponent implements OnInit {
   @Input() contact: Contact;
   @Output() contactSelect: EventEmitter<any>;
 
-  constructor(private contactService: ContactService) {
+  constructor(private contactService: ContactService, private snackbar: MatSnackBar) {
     this.contactSelect = new EventEmitter<any>();
   }
 
@@ -26,5 +27,9 @@ export class ContactListItemComponent implements OnInit {
   onDelete() {
     this.contactService.deleteContact(this.contact.id);
     console.log('poisto onnistui');
+    this.snackbar.open('Contact successfully deleted', 'OK', {duration: 3000});
+
   }
+
+
 }

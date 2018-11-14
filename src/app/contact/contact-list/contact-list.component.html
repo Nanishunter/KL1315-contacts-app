@@ -4,8 +4,6 @@
 
 
 
-
-
   <app-contact-list-item *ngFor="let contact of contacts" [contact]="contact" (contactSelect)="onContactSelect(contact)">
 
 
@@ -13,9 +11,9 @@
 
   </app-contact-list-item>
 
-  <a href="http://localhost:4200/contacts/new">
-    Lisää kontakti
-  </a>
+  <button mat-fab class="al-fab" (click)="onArrowselect()" color="warn">
+    <mat-icon>add</mat-icon>
+  </button>
 
 
 

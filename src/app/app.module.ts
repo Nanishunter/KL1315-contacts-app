@@ -13,13 +13,16 @@ import {
   MatCardModule,
   MatListModule,
   MatFormFieldModule,
-  MatSnackBar
+  MatSnackBar,
+  MatInputModule
 } from '@angular/material';
 import {MatIconModule} from '@angular/material/icon';
 import {RouterModule, Routes} from '@angular/router';
 import { ContactDetailComponent } from './contact/contact-detail/contact-detail.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 
 const appRoutes: Routes = [
   {path: 'contacts', component: ContactListComponent},
@@ -48,7 +51,10 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     MatFormFieldModule,
     FlexLayoutModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   providers: [ContactService],

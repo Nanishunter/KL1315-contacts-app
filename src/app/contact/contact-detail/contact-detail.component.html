@@ -1,18 +1,46 @@
 <mat-card>
-  <input type="text" placeholder="First name" class="cw-contact-detail-fields">
-  <br>
-  <input type="text" placeholder="First name" class="cw-contact-detail-fields">
-  <br>
-  <input type="text" placeholder="First name" class="cw-contact-detail-fields">
-  <br>
-  <input type="text" placeholder="First name" class="cw-contact-detail-fields">
-  <br>
-<br>
-  <button (click)="onSave()" mat-raised-button color="primary">Save</button>
+<div fxLayout="row" fxLayoutAlign="center start">
+  <div fxLayout="column" class="cw-contact-detail-fields">
+    <mat-form-field floatPlaceholder="auto">
+      <input matInput [(ngModel)]="contact.firstName"
+             name="firstname" #firstname="ngModel"
+             type="text"
+             required maxlength="12"
+             placeholder="First name">
+    </mat-form-field>
+    <mat-form-field floatPlaceholder="auto">
+      <input matInput [(ngModel)]="contact.lastName"
+             name="lastname" #lastname="ngModel"
+             type="text"
+             required maxlength="15"
+             placeholder="Second name">
+    </mat-form-field>
+    <mat-form-field floatPlaceholder="auto">
+      <input matInput [(ngModel)]="contact.emailAddress"
 
-
-
-
-
+             type="text"
+             [formControl]="email"
+             required
+             placeholder="Email">
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field floatPlaceholder="auto">
+      <input matInput [(ngModel)]="contact.phoneNumber"
+             name="phonenumber" #phonenumber="ngModel"
+             type="tel"
+             required
+             placeholder="Phone number">
+    </mat-form-field>
+    <mat-form-field floatPlaceholder="auto">
+      <input matInput [(ngModel)]="contact.streetAddress"
+             name="street" #street="ngModel"
+             type="text"
+             required
+             placeholder="Street address">
+    </mat-form-field>
+    <button mat-fab class="al-fab" (click)="onSave()" color="warn">
+      <mat-icon>check</mat-icon>
+    </button>
+  </div>
+</div>
 </mat-card>
-
