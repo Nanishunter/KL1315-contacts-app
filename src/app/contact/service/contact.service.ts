@@ -35,10 +35,13 @@ export class ContactService {
       }
     }
 
-
   }
 
-  createContact(id: number) {
+  createContact(contact: Contact) {
+
+    const lastIndex = this.contacts[this.contacts.length - 1].id;
+    contact.id = lastIndex + 1;
+    this.contacts.push(contact);
 
 
 
