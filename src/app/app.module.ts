@@ -14,7 +14,6 @@ import {
   MatCardModule,
   MatListModule,
   MatFormFieldModule,
-  MatSnackBar,
   MatInputModule
 } from '@angular/material';
 import {MatIconModule} from '@angular/material/icon';
@@ -23,6 +22,7 @@ import { ContactDetailComponent } from './contact/contact-detail/contact-detail.
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { from } from 'rxjs';
+import {ToolbarService} from './ui/toolbar/toolbar/toolbar.service';
 
 
 const appRoutes: Routes = [
@@ -58,7 +58,7 @@ const appRoutes: Routes = [
     FlexLayoutModule
 
   ],
-  providers: [ContactService],
+  providers: [ContactService, Location, ToolbarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

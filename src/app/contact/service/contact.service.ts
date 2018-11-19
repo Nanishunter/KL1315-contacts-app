@@ -12,6 +12,7 @@ export class ContactService {
 
   constructor() {
     this.contacts = [];
+
     this.contacts.push(new Contact(1, 'Antti', 'Karjalainen', 'Hietasenkatu 16', 'Mikkeli',
       '50150', '0405173943', 'antti.karjalainen@student.saimia.fi'));
     this.contacts.push(new Contact(2, 'Arto', 'Lindgren', 'Hietasenkatu 16', 'Stadi',
@@ -25,6 +26,7 @@ export class ContactService {
   getContacts(): Contact[] {
     return this.contacts;
   }
+
 
   deleteContact(id: number) {
 
@@ -42,6 +44,7 @@ export class ContactService {
     const lastIndex = this.contacts[this.contacts.length - 1].id;
     contact.id = lastIndex + 1;
     this.contacts.push(contact);
+
 
 
 

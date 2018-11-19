@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Contact} from '../contact';
 import {ContactService} from '../service/contact.service';
 import {MatSnackBar} from '@angular/material';
-
+import {Router, Routes} from '@angular/router';
 @Component({
   selector: 'app-contact-list-item',
   templateUrl: './contact-list-item.component.html',
@@ -12,8 +12,8 @@ export class ContactListItemComponent implements OnInit {
 
   @Input() contact: Contact;
   @Output() contactSelect: EventEmitter<any>;
+  constructor(private contactService: ContactService, private snackbar: MatSnackBar, private route: Router) {
 
-  constructor(private contactService: ContactService, private snackbar: MatSnackBar) {
     this.contactSelect = new EventEmitter<any>();
   }
 
@@ -30,6 +30,8 @@ export class ContactListItemComponent implements OnInit {
     this.snackbar.open('Contact successfully deleted', 'OK', {duration: 3000});
 
   }
+  onEditContact() {
+    this.route.navigate(['/contacts/new']);
 
-
+  }
 }

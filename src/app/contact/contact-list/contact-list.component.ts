@@ -1,7 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {Contact} from '../contact';
 import {ContactService} from '../service/contact.service';
+
+
 import {ActivatedRoute, Router} from '@angular/router';
+import {ToolbarService} from '../../ui/toolbar/toolbar/toolbar.service';
+import {ToolbarOptions} from '../../ui/toolbar/toolbar/toolbar-options';
 
 @Component({
   selector: 'app-contact-list',
@@ -12,12 +16,15 @@ export class ContactListComponent implements OnInit {
 
   contacts: Contact[];
 
+
   constructor(private contactService: ContactService,
-              private route: Router, private router: ActivatedRoute) {
-    this.contacts = [];
+              private route: Router, private router: ActivatedRoute, private toolbar: ToolbarService) {
+
+
   }
 
   ngOnInit() {
+    this.toolbar.setToolbarOptions(new ToolbarOptions('menu', 'Contacts application'));
     /*
     this.contacts.push(new Contact(1, 'First', 'Contact'));
     this.contacts.push(new Contact(2, 'Second', 'Contact'));
@@ -30,7 +37,9 @@ export class ContactListComponent implements OnInit {
   onContactSelect(contact: Contact) {
     console.log('Contact selected:' + contact.id);
   }
+
   onArrowselect() {
     this.route.navigate(['/contacts/new']);
-  }
-}
+
+
+  }}

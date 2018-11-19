@@ -1,10 +1,6 @@
 <mat-toolbar color="warn">
-  <button mat-icon-button (click)="onMenuClick()" value="push">
-  <a class="nav">
-      <div class="one"></div>
-      <div class="two"></div>
-      <div class="three"></div>
-  </a>
+  <button mat-icon-button (click)="mainAction.runAction()" value="push">
+   <mat-icon>{{mainAction.icon}}</mat-icon>
   </button>
-  <span>Contacts Application</span>
+  <span>{{options.title}}</span>
 </mat-toolbar>

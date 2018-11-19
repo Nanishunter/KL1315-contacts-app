@@ -17,5 +17,8 @@ export class Contact {
     this.postalCode = postalCode;
     this.phoneNumber = phoneNumber;
     this.emailAddress = emailAddress;
+
   }
 }
+
+
