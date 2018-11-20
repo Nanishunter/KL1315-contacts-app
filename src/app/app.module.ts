@@ -23,12 +23,15 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { from } from 'rxjs';
 import {ToolbarService} from './ui/toolbar/toolbar/toolbar.service';
+import {ContactLocalStorageService} from './contact/service/contact-local-storage.service';
 
 
 const appRoutes: Routes = [
   {path: 'contacts', component: ContactListComponent},
   {path: 'contacts/new', component: ContactDetailComponent},
-  { path: '', redirectTo: '/contacts', pathMatch: 'full'}
+  { path: '', redirectTo: '/contacts', pathMatch: 'full'},
+  {path: 'contacts/edit/:id', component: ContactDetailComponent}
+
 ]
 
 
@@ -58,7 +61,7 @@ const appRoutes: Routes = [
     FlexLayoutModule
 
   ],
-  providers: [ContactService, Location, ToolbarService],
+  providers: [ContactService, Location, ToolbarService, ContactLocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

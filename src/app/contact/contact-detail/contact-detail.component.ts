@@ -32,23 +32,20 @@ export class ContactDetailComponent implements OnInit {
 
 
   ngOnInit() {
-
     this.toolbar.setToolbarOptions(new ToolbarOptions('back', 'Edit contact'));
-    if (this.contact.id === null) {
-      this.editingEnabled = true;
-      console.log('onload');
-    }
-    else {
-
-
-      // View contact
-      this.toolbar.setToolbarOptions(new ToolbarOptions('back', 'CREATE CONTACT'));
-
-
+    const contactId = this.router.snapshot.paramMap.get('id');
+    // Get contact by id
+    if (this.contactService.getContactById(contactId) != null) {
+      this.toolbar.setToolbarOptions(new ToolbarOptions('back', 'Edit contact'));
+    } else {
+      this.toolbar.setToolbarOptions(new ToolbarOptions('back', 'Create contact'));
+      // contactia ei löytynyt, ohjataan kontakti näkymään
     }
   }
 
+
   onSave() {
+    this.contactService.addContact(this.contact);
     this.route.navigate(['/contacts']);
     console.log('Save success');
     this.snackbar.open('Created contact!', 'OK', {duration: 3000});
@@ -60,6 +57,8 @@ export class ContactDetailComponent implements OnInit {
       this.email.hasError('email') ? 'Not a valid value' :
         '';
   }
+
+
 }
 
 

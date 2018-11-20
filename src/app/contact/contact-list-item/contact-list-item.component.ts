@@ -18,7 +18,7 @@ export class ContactListItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.contact);
+
   }
 
   onContactSelect() {
@@ -31,7 +31,7 @@ export class ContactListItemComponent implements OnInit {
 
   }
   onEditContact() {
-    this.route.navigate(['/contacts/new']);
+    this.route.navigate(['/contacts/edit', this.contact.id]);
 
   }
 }
