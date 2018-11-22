@@ -7,6 +7,8 @@ import {ContactService} from './contact/service/contact.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToolbarComponent } from './ui/toolbar/toolbar/toolbar.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {MatDialogModule} from '@angular/material/dialog';
+
 import {
   MatButtonModule,
   MatSidenavModule,
@@ -24,6 +26,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { from } from 'rxjs';
 import {ToolbarService} from './ui/toolbar/toolbar/toolbar.service';
 import {ContactLocalStorageService} from './contact/service/contact-local-storage.service';
+import { ConfirmDialogComponent } from './ui/confirm-dialog/confirm-dialog.component';
 
 
 const appRoutes: Routes = [
@@ -42,6 +45,7 @@ const appRoutes: Routes = [
     ContactListItemComponent,
     ToolbarComponent,
     ContactDetailComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +62,8 @@ const appRoutes: Routes = [
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatDialogModule
 
   ],
   providers: [ContactService, Location, ToolbarService, ContactLocalStorageService],

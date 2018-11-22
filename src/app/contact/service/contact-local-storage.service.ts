@@ -55,12 +55,13 @@ export class ContactLocalStorageService {
     localStorage.setItem(this.localStorage, JSON.stringify(this.contacts));
   }
 
-  deleteContact(id: number) {
-    this.contacts.splice(this.contacts.indexOf(Contact), 1);
-
+  deleteContact(contact: Contact) {
+    for (let i = 0; i < this.contacts.length; i++) {
+      if (contact.id === this.contacts[i].id) {
+        this.contacts.splice(i, 1);
+      }
+    }
     localStorage.removeItem(this.localStorage);
     localStorage.setItem(this.localStorage, JSON.stringify(this.contacts));
-
-
   }
 }

@@ -30,9 +30,9 @@ export class ContactService {
   }
 
 
-  deleteContact(id: number) {
+  deleteContact(contact: Contact) {
 
-    this.localStorage.deleteContact(this.contacts);
+    this.localStorage.deleteContact(contact);
 
 
 
