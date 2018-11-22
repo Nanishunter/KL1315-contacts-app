@@ -25,8 +25,13 @@ export class ContactLocalStorageService {
   }
 
   editContact(contact: Contact) {
-
+    for (let i = 0; i < this.contacts.length; i++) {
+      if (contact.id === this.contacts[i].id) {
+        this.contacts[i] = contact;
+      }
+    }
   }
+    
 
   getContactbyId(id: string): Contact {
     for (const contact of this.contacts) {
@@ -36,7 +41,6 @@ export class ContactLocalStorageService {
       }
       console.log(id);
 
-      return null;
     }
   }
 
@@ -64,4 +68,6 @@ export class ContactLocalStorageService {
     localStorage.removeItem(this.localStorage);
     localStorage.setItem(this.localStorage, JSON.stringify(this.contacts));
   }
+
+  
 }

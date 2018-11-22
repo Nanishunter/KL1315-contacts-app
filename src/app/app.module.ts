@@ -26,8 +26,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { from } from 'rxjs';
 import {ToolbarService} from './ui/toolbar/toolbar/toolbar.service';
 import {ContactLocalStorageService} from './contact/service/contact-local-storage.service';
-import { ConfirmDialogComponent } from './ui/confirm-dialog/confirm-dialog.component';
-
 
 const appRoutes: Routes = [
   {path: 'contacts', component: ContactListComponent},
@@ -45,7 +43,6 @@ const appRoutes: Routes = [
     ContactListItemComponent,
     ToolbarComponent,
     ContactDetailComponent,
-    ConfirmDialogComponent,
   ],
   imports: [
     BrowserModule,

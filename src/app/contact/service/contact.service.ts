@@ -50,5 +50,7 @@ export class ContactService {
     this.localStorage.addContact(contact);
   }
 
-
+  editContact(contact: Contact) {
+    return this.localStorage.editContact(contact);
+  }
 }
