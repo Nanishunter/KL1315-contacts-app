@@ -46,11 +46,20 @@ export class ContactDetailComponent implements OnInit {
 
 
   onSave() {
-    this.contactService.addContact(this.contact);
+    console.log('ContactDetailComponent: onSave');
     this.route.navigate(['/contacts']);
-    console.log('Save success');
-    this.snackbar.open('Created contact!', 'OK', {duration: 3000});
-
+    const contactId = this.router.snapshot.paramMap.get('id');
+    if (contactId != null) {
+      this.contactService.editContact(this.contact);
+      this.snackbar.open('Contact edited!', '', {
+        duration: 3000
+      });
+    } else {
+      this.contactService.addContact(this.contact);
+      this.snackbar.open('Contact created!', '', {
+        duration: 3000
+      });
+    }
   }
 
   getErrorMessage() {

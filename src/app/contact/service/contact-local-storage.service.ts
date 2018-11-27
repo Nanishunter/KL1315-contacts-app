@@ -24,23 +24,15 @@ export class ContactLocalStorageService {
     return this.contacts;
   }
 
-  editContact(contact: Contact) {
-    for (let i = 0; i < this.contacts.length; i++) {
-      if (contact.id === this.contacts[i].id) {
-        this.contacts[i] = contact;
-      }
-    }
-  }
-    
+
 
   getContactbyId(id: string): Contact {
+    let copy: Contact;
     for (const contact of this.contacts) {
-      if (contact.id = Number(id)) {
-        return contact;
-        console.log(id);
+      if (contact.id === Number(id)) {
+        copy = Object.assign({}, contact);
+        return copy;
       }
-      console.log(id);
-
     }
   }
 
@@ -69,5 +61,14 @@ export class ContactLocalStorageService {
     localStorage.setItem(this.localStorage, JSON.stringify(this.contacts));
   }
 
+
+  editContact(contact: Contact) {
+    for (let i = 0; i < this.contacts.length; i++) {
+      if (contact.id === this.contacts[i].id) {
+        this.contacts[i] = contact;
+      }
+    }
+  localStorage.setItem(this.localStorage, JSON.stringify(this.contacts));
+  }
   
 }
