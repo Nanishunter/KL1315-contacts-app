@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToolbarComponent } from './ui/toolbar/toolbar/toolbar.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatDialogModule} from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
 
 import {
   MatButtonModule,
@@ -60,7 +61,8 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule
 
   ],
   providers: [ContactService, Location, ToolbarService, ContactLocalStorageService],

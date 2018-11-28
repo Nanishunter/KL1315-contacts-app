@@ -1,0 +1,28 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "firstName": "Antti",
+      "lastName": "Karjalainen",
+      "streetAdress": "Pirkonlähteenkatu 5 A 4",
+      "city": "Lappeenranta",
+      "postalCode": "53850",
+      "phoneNumber": "0405173943",
+      "emailAdress": "antti.karjalainen@student.saimia.fi"
+ 
+    },
+
+    {
+      "id": 2,
+      "firstName": "Artisti",
+      "lastName": "Lindgren",
+      "streetAdress": "Orioninkatu11B14",
+      "city": "Lappeenranta",
+      "postalCode": "53850",
+      "phoneNumber": "0405173943",
+      "emailAdress": "antti.karjalainen@student.saimia.fi"
+ 
+    }
+  ]
+  
+}
