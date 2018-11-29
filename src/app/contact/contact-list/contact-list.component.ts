@@ -30,15 +30,25 @@ export class ContactListComponent implements OnInit {
     this.contacts.push(new Contact(2, 'Second', 'Contact'));
     this.contacts.push(new Contact(3, 'Third', 'Contact'));
     */
-    this.contacts = this.contactService.getContacts();
+    this.contactService.getContacts().subscribe(result => {
+      this.contacts = result;
+    })
   }
 
-  onContactSelect(contact: Contact) {
+  onContactDeleted(contact: Contact) {
     console.log('Contact selected:' + contact.id);
+  }
+
+  loadContacts() {
+
+    this.contactService.getContacts().subscribe( result => {
+this.contacts = result;
+    })
+
   }
 
   onArrowselect() {
     this.route.navigate(['/contacts/new']);
 
 
-  }}
+  }

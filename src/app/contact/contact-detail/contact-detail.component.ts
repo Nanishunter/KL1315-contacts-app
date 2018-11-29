@@ -47,7 +47,7 @@ export class ContactDetailComponent implements OnInit {
 
   onSave() {
     console.log('ContactDetailComponent: onSave');
-    this.route.navigate(['/contacts']);
+    
     const contactId = this.router.snapshot.paramMap.get('id');
     if (contactId != null) {
       this.contactService.editContact(this.contact);
@@ -55,10 +55,13 @@ export class ContactDetailComponent implements OnInit {
         duration: 3000
       });
     } else {
-      this.contactService.addContact(this.contact);
-      this.snackbar.open('Contact created!', '', {
-        duration: 3000
+      this.contactService.addContact(this.contact).subscribe(result => {
+        this.snackbar.open('Contact created!', '', {
+          duration: 3000
+        });
+        this.route.navigate(['/contacts']);
       });
+      
     }
   }
 

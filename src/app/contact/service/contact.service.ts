@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Contact} from '../contact';
 import {Observable} from 'rxjs';
 import {ContactLocalStorageService} from './contact-local-storage.service';
+import { ContactHttpService } from './contact-http.service';
 
 
 @Injectable({
@@ -12,7 +13,7 @@ export class ContactService {
   contacts: Contact[];
   contact: Contact;
 
-  constructor(private localStorage: ContactLocalStorageService) {
+  constructor(private localStorage: ContactLocalStorageService, private contacthttpService: ContactHttpService) {
     this.contacts = [];
 
     this.contacts.push(new Contact(1, 'Antti', 'Karjalainen', 'Hietasenkatu 16', 'Mikkeli',
@@ -25,11 +26,11 @@ export class ContactService {
       '50150', '0405173943', 'antti.karjalainen@student.saimia.fi'));
   }
 
-  getContacts(): Contact[] {
-    return this.localStorage.getContacts();
+  getContacts(): Observable <Contact[]> {
+    return this.contacthttpService.getContacts();
   }
 
-
+/*
   deleteContact(contact: Contact) {
 
     this.localStorage.deleteContact(contact);
@@ -37,20 +38,24 @@ export class ContactService {
 
 
 
+  }*/
+
+  deleteContact (contact: Contact): Observable<any> {
+    return this.contacthttpService.deleteContact(contact);
   }
 
 
   getContactById(id: string) {
-    return this.localStorage.getContactbyId(id);
+    return this.contacthttpService.getById(id);
 
   }
 
 
   addContact(contact: Contact) {
-    this.localStorage.addContact(contact);
+    return this.contacthttpService.post(contact);
   }
 
   editContact(contact: Contact) {
-    return this.localStorage.editContact(contact);
+    return this.contacthttpService.put(contact);
   }
 }
