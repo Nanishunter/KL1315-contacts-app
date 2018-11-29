@@ -36,13 +36,25 @@ export class ContactDetailComponent implements OnInit {
     this.toolbar.setToolbarOptions(new ToolbarOptions('back', 'Edit contact'));
     const contactId = this.router.snapshot.paramMap.get('id');
     // Get contact by id
+    /*
     if (this.contactService.getContactById(contactId) != null) {
       this.toolbar.setToolbarOptions(new ToolbarOptions('back', 'Edit contact'));
     } else {
       this.toolbar.setToolbarOptions(new ToolbarOptions('back', 'Create contact'));
       // contactia ei löytynyt, ohjataan kontakti näkymään
-    }
+    }*/
+    this.contactService.getContactById(contactId).subscribe(result => {
+      this.contact = result;
+      
+
+    }, error => {
+      this.route.navigate(['/contacts']);
+    });
+
+    
+    
   }
+  
 
 
   onSave() {
@@ -50,9 +62,13 @@ export class ContactDetailComponent implements OnInit {
     
     const contactId = this.router.snapshot.paramMap.get('id');
     if (contactId != null) {
-      this.contactService.editContact(this.contact);
-      this.snackbar.open('Contact edited!', 'OK', {
-        duration: 3000
+      this.contactService.editContact(this.contact).subscribe(result => {
+       this.contact = result;
+        this.snackbar.open('Contact edited!', 'OK', {
+          duration: 3000
+      });
+      
+
       });
     } else {
       this.contactService.addContact(this.contact).subscribe(result => {
