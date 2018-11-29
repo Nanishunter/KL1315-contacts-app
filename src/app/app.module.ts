@@ -9,6 +9,8 @@ import { ToolbarComponent } from './ui/toolbar/toolbar/toolbar.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatDialogModule} from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
+import {ContactProvider} from './contact/interfaces/contact-provider'
+import {environment} from '../environments/environment'
 
 import {
   MatButtonModule,
@@ -27,6 +29,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { from } from 'rxjs';
 import {ToolbarService} from './ui/toolbar/toolbar/toolbar.service';
 import {ContactLocalStorageService} from './contact/service/contact-local-storage.service';
+import { ContactHttpService } from './contact/service/contact-http.service';
 
 const appRoutes: Routes = [
   {path: 'contacts', component: ContactListComponent},
@@ -65,7 +68,8 @@ const appRoutes: Routes = [
     HttpClientModule
 
   ],
-  providers: [ContactService, Location, ToolbarService, ContactLocalStorageService],
+  providers: [ContactService, Location, ToolbarService, ContactLocalStorageService,
+  {provide: ContactProvider, useClass: environment.apiEnabled ? ContactHttpService : ContactLocalStorageService}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

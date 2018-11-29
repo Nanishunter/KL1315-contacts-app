@@ -29,6 +29,7 @@ export class ContactListItemComponent implements OnInit {
   }
   onEditContact() {
     this.route.navigate(['/contacts/edit', this.contact.id]);
+    this.contactService.editContact(this.contact);
     console.log(this.contact.id);
 
   }

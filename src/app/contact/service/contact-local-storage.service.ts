@@ -1,11 +1,14 @@
 import {Injectable} from '@angular/core';
 import {Contact} from '../contact';
 import {MatSnackBar} from '@angular/material';
+import { ContactProvider } from '../interfaces/contact-provider';
+import {Observable, of} from 'rxjs';
+import { analyzeAndValidateNgModules, NullTemplateVisitor } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ContactLocalStorageService {
+export class ContactLocalStorageService implements ContactProvider {
 
   localStorage: 'contacts-app';
   contacts: Contact[];
@@ -20,23 +23,25 @@ export class ContactLocalStorageService {
     this.contacts = JSON.parse(storageElement);
   }
 
-  getContacts(): Contact[] {
-    return this.contacts;
+  getContacts(): Observable<Contact[]> {
+    return of(this.contacts);
+
   }
 
 
 
-  getContactbyId(id: string): Contact {
+  getById(id: string): Observable<Contact>{
     let copy: Contact;
     for (const contact of this.contacts) {
       if (contact.id === Number(id)) {
         copy = Object.assign({}, contact);
-        return copy;
+        return of (contact);
       }
     }
   }
 
-  addContact(contact: Contact) {
+  create(contact: Contact): Observable<Contact> {
+    
     console.log('adding contact id:' + contact.id);
     let lastId = 1;
     if (this.contacts.length > 0) {
@@ -49,9 +54,11 @@ export class ContactLocalStorageService {
     // update local storage
     localStorage.removeItem(this.localStorage);
     localStorage.setItem(this.localStorage, JSON.stringify(this.contacts));
+
+    return of(contact);
   }
 
-  deleteContact(contact: Contact) {
+  deleteContact(contact: Contact): Observable<any> {
     for (let i = 0; i < this.contacts.length; i++) {
       if (contact.id === this.contacts[i].id) {
         this.contacts.splice(i, 1);
@@ -59,16 +66,19 @@ export class ContactLocalStorageService {
     }
     localStorage.removeItem(this.localStorage);
     localStorage.setItem(this.localStorage, JSON.stringify(this.contacts));
+    return of(contact);
   }
 
 
-  editContact(contact: Contact) {
+  edit(contact: Contact): Observable<Contact> {
     for (let i = 0; i < this.contacts.length; i++) {
       if (contact.id === this.contacts[i].id) {
         this.contacts[i] = contact;
       }
     }
   localStorage.setItem(this.localStorage, JSON.stringify(this.contacts));
+
+  return of(contact);
   }
   
 }

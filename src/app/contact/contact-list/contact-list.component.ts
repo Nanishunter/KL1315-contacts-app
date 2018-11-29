@@ -52,3 +52,4 @@ this.contacts = result;
 
 
   }
+}
