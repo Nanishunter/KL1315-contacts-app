@@ -1,8 +1,10 @@
+import { Contact } from './../contact';
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Contact} from '../contact';
 import {ContactService} from '../service/contact.service';
-import {MatSnackBar} from '@angular/material';
+import {MatSnackBar, MatDialog} from '@angular/material';
 import {Router, Routes} from '@angular/router';
+import {ConfirmDialogComponent} from '../dialog/confirm-dialog/confirm-dialog.component'
+
 @Component({
   selector: 'app-contact-list-item',
   templateUrl: './contact-list-item.component.html',
@@ -12,7 +14,7 @@ export class ContactListItemComponent implements OnInit {
 
   @Input() contact: Contact;
   @Output() contactSelect: EventEmitter<any>;
-  constructor(private contactService: ContactService, private snackbar: MatSnackBar, private route: Router) {
+  constructor(private contactService: ContactService, private snackbar: MatSnackBar, private route: Router, private dialog: MatDialog) {
 
     this.contactSelect = new EventEmitter<any>();
   }
@@ -25,7 +27,18 @@ export class ContactListItemComponent implements OnInit {
     this.contactSelect.emit();
   }
   onDelete() {
-    this.removeContact();
+
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+    });
+
+
   }
   onEditContact() {
     this.route.navigate(['/contacts/edit', this.contact.id]);
@@ -37,6 +50,10 @@ export class ContactListItemComponent implements OnInit {
   removeContact() {
     this.contactService.deleteContact(this.contact).subscribe( () => {
       this.snackbar.open('Contact successfully deleted', 'OK', {duration: 3000});
-    })
+    });
   }
-}
+
+
+  }
+
+

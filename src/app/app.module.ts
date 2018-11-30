@@ -11,6 +11,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
 import {ContactProvider} from './contact/interfaces/contact-provider'
 import {environment} from '../environments/environment'
+import {ConfirmDialogComponent} from './contact/dialog/confirm-dialog/confirm-dialog.component' 
 
 import {
   MatButtonModule,
@@ -47,6 +48,7 @@ const appRoutes: Routes = [
     ContactListItemComponent,
     ToolbarComponent,
     ContactDetailComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -65,9 +67,11 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     FlexLayoutModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
 
   ],
+  entryComponents: [ConfirmDialogComponent],
   providers: [ContactService, Location, ToolbarService, ContactLocalStorageService,
   {provide: ContactProvider, useClass: environment.apiEnabled ? ContactHttpService : ContactLocalStorageService}],
   bootstrap: [AppComponent]
