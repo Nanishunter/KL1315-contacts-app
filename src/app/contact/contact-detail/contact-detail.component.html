@@ -39,6 +39,13 @@
              required
              placeholder="Street address">
     </mat-form-field>
+    <mat-form-field floatPlaceholder="auto">
+      <input matInput [(ngModel)]="contact.city"
+             name="street" #street="ngModel"
+             type="text"
+             required
+             placeholder="City">
+    </mat-form-field>
     <button mat-fab class="al-fab" (click)="onSave()" color="warn">
       <mat-icon>check</mat-icon>
     </button>

@@ -9,9 +9,9 @@ import { ToolbarComponent } from './ui/toolbar/toolbar/toolbar.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatDialogModule} from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
-import {ContactProvider} from './contact/interfaces/contact-provider'
-import {environment} from '../environments/environment'
-import {ConfirmDialogComponent} from './contact/dialog/confirm-dialog/confirm-dialog.component' 
+import {ContactProvider} from './contact/interfaces/contact-provider';
+import {environment} from '../environments/environment';
+import {ConfirmDialogComponent} from './contact/dialog/confirm-dialog/confirm-dialog.component' ;
 
 import {
   MatButtonModule,
@@ -31,12 +31,16 @@ import { from } from 'rxjs';
 import {ToolbarService} from './ui/toolbar/toolbar/toolbar.service';
 import {ContactLocalStorageService} from './contact/service/contact-local-storage.service';
 import { ContactHttpService } from './contact/service/contact-http.service';
+import { ContactMapComponent } from './contact/contact-map/contact-map.component';
+import { SafeUrlPipe } from './contact/Pipes/safe-url.pipe';
 
 const appRoutes: Routes = [
   {path: 'contacts', component: ContactListComponent},
   {path: 'contacts/new', component: ContactDetailComponent},
   {path: 'contacts/edit/:id', component: ContactDetailComponent},
+  {path: 'contacts/map', component: ContactMapComponent},
   {path: '**', redirectTo: '/contacts', pathMatch: 'full'},
+  {path: '', redirectTo: '/contacts', pathMatch: 'full'},
 
 ];
 
@@ -48,7 +52,9 @@ const appRoutes: Routes = [
     ContactListItemComponent,
     ToolbarComponent,
     ContactDetailComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    ContactMapComponent,
+    SafeUrlPipe
   ],
   imports: [
     BrowserModule,
