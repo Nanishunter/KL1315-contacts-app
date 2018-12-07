@@ -32,7 +32,7 @@ export class ContactListComponent implements OnInit {
     */
     this.contactService.getContacts().subscribe(result => {
       this.contacts = result;
-    })
+    });
   }
 
   onContactDeleted(contact: Contact) {
@@ -43,7 +43,7 @@ export class ContactListComponent implements OnInit {
 
     this.contactService.getContacts().subscribe( result => {
 this.contacts = result;
-    })
+    });
 
   }
 

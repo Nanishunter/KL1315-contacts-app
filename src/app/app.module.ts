@@ -35,10 +35,10 @@ import { ContactHttpService } from './contact/service/contact-http.service';
 const appRoutes: Routes = [
   {path: 'contacts', component: ContactListComponent},
   {path: 'contacts/new', component: ContactDetailComponent},
-  { path: '', redirectTo: '/contacts', pathMatch: 'full'},
-  {path: 'contacts/edit/:id', component: ContactDetailComponent}
+  {path: 'contacts/edit/:id', component: ContactDetailComponent},
+  {path: '**', redirectTo: '/contacts', pathMatch: 'full'},
 
-]
+];
 
 
 @NgModule({
@@ -72,7 +72,7 @@ const appRoutes: Routes = [
 
   ],
   entryComponents: [ConfirmDialogComponent],
-  providers: [ContactService, Location, ToolbarService, ContactLocalStorageService,
+  providers: [ContactService, ToolbarService, ContactLocalStorageService,
   {provide: ContactProvider, useClass: environment.apiEnabled ? ContactHttpService : ContactLocalStorageService}],
   bootstrap: [AppComponent]
 })

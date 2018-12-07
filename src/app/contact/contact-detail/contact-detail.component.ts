@@ -19,7 +19,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 export class ContactDetailComponent implements OnInit {
 
   contact: Contact;
-  private email: FormControl;
+  email: FormControl;
   editingEnabled: boolean;
 
   constructor(private route: Router, private router: ActivatedRoute, private contactService: ContactService, private snackbar: MatSnackBar,
@@ -45,21 +45,16 @@ export class ContactDetailComponent implements OnInit {
     }*/
     this.contactService.getContactById(contactId).subscribe(result => {
       this.contact = result;
-      
+
 
     }, error => {
-      this.route.navigate(['/contacts']);
+      // this.route.navigate(['/contacts']);
     });
 
-    
-    
   }
-  
-
 
   onSave() {
     console.log('ContactDetailComponent: onSave');
-    
     const contactId = this.router.snapshot.paramMap.get('id');
     if (contactId != null) {
       this.contactService.editContact(this.contact).subscribe(result => {
@@ -67,8 +62,6 @@ export class ContactDetailComponent implements OnInit {
         this.snackbar.open('Contact edited!', 'OK', {
           duration: 3000
       });
-      
-
       });
     } else {
       this.contactService.addContact(this.contact).subscribe(result => {
@@ -77,7 +70,6 @@ export class ContactDetailComponent implements OnInit {
         });
         this.route.navigate(['/contacts']);
       });
-      
     }
   }
 

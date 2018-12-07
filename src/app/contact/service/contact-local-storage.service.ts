@@ -30,7 +30,7 @@ export class ContactLocalStorageService implements ContactProvider {
 
 
 
-  getById(id: string): Observable<Contact>{
+  getById(id: string): Observable<Contact> {
     let copy: Contact;
     for (const contact of this.contacts) {
       if (contact.id === Number(id)) {
@@ -41,7 +41,6 @@ export class ContactLocalStorageService implements ContactProvider {
   }
 
   create(contact: Contact): Observable<Contact> {
-    
     console.log('adding contact id:' + contact.id);
     let lastId = 1;
     if (this.contacts.length > 0) {
@@ -80,5 +79,5 @@ export class ContactLocalStorageService implements ContactProvider {
 
   return of(contact);
   }
-  
+
 }

@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { Contact } from './../../contact';
 import { Component, OnInit, Input, Inject, EventEmitter, Output } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
@@ -16,7 +18,8 @@ export class ConfirmDialogComponent implements OnInit {
   @Output() contactSelect: EventEmitter<any>;
 
   constructor(public dialogref: MatDialogRef<ConfirmDialogComponent>,
-     @Inject (MAT_DIALOG_DATA)public data: any, private contactService: ContactService, private snackbar: MatSnackBar) {
+     @Inject (MAT_DIALOG_DATA)public data: any, private contactService:
+     ContactService, private snackbar: MatSnackBar, private location: Location, private route: Router) {
 
 
       this.contactSelect = new EventEmitter<any>();
@@ -28,10 +31,7 @@ export class ConfirmDialogComponent implements OnInit {
   }
 
   save() {
-
     this.removeContact();
-
-
 }
 
 removeContact() {
@@ -42,4 +42,12 @@ this.dialogref.close();
 
 
 }
+
+onNoclick() {
+
+
+
+
+}
+
 }
