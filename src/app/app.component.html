@@ -1,0 +1,18 @@
+<mat-sidenav-container class="app-sidenav-container">
+  <mat-sidenav #sidenav [mode]="mode.value" [opened]="false" class="app-sidenav">
+    <p>Sidenav content</p>
+    <div>
+      <a href="https://github.com/Nanishunter/KL1315-contacts-app" class="app-sidenav-content">App in github</a>
+    </div>
+    <div>
+      <br>
+
+      <img src="../assets/profpic.jpg" width="70%" class="app-sidenav-content">
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content class="app-sidenav-content">
+    <app-toolbar (menuClick)="sidenav.toggle()"></app-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

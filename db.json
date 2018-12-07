@@ -1,0 +1,18 @@
+{
+  "contacts": [
+    {
+      "firstName": "Antti",
+      "lastName": "Karjalainen",
+      "streetAddress": "hieta",
+      "phoneNumber": "040",
+      "emailAddress": "a@a.fi",
+      "id": 1
+    },
+    {
+      "firstName": "Mickey",
+      "lastName": "Mouse",
+      "phoneNumber": "0440201113",
+      "id": 2
+    }
+  ]
+}
