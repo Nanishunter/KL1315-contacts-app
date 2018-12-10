@@ -59,10 +59,11 @@ export class ContactDetailComponent implements OnInit {
     if (contactId != null) {
       this.contactService.editContact(this.contact).subscribe(result => {
        this.contact = result;
-        this.snackbar.open('Contact edited!', 'OK', {
-          duration: 3000
       });
+      this.snackbar.open('Contact edited!', 'OK', {
+        duration: 3000
       });
+      this.route.navigate(['/contacts']);
     } else {
       this.contactService.addContact(this.contact).subscribe(result => {
         this.snackbar.open('Contact created!', 'OK', {
