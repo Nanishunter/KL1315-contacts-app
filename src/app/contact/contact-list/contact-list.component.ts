@@ -1,3 +1,4 @@
+import { DialogService } from './../service/dialog.service';
 import {Component, OnInit} from '@angular/core';
 import {Contact} from '../contact';
 import {ContactService} from '../service/contact.service';
@@ -18,7 +19,8 @@ export class ContactListComponent implements OnInit {
 
 
   constructor(private contactService: ContactService,
-              private route: Router, private router: ActivatedRoute, private toolbar: ToolbarService) {
+              private route: Router, private router: ActivatedRoute, private toolbar:
+               ToolbarService, private dialogService: DialogService) {
 
 
   }
@@ -43,6 +45,8 @@ export class ContactListComponent implements OnInit {
 
     this.contactService.getContacts().subscribe( result => {
 this.contacts = result;
+    }, () => {
+      this.dialogService.openErrorDialog('Getting contacts failed!');
     });
 
   }

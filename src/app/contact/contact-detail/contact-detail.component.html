@@ -46,6 +46,10 @@
              required
              placeholder="City">
     </mat-form-field>
+
+      <input type="file" (change)="onFileselected($event)">
+
+
     <button mat-fab class="al-fab" (click)="onSave()" color="warn">
       <mat-icon>check</mat-icon>
     </button>

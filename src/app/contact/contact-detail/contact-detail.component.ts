@@ -1,3 +1,4 @@
+import { DialogService } from './../service/dialog.service';
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router, Routes} from '@angular/router';
 import {ContactService} from '../service/contact.service';
@@ -23,7 +24,7 @@ export class ContactDetailComponent implements OnInit {
   editingEnabled: boolean;
 
   constructor(private route: Router, private router: ActivatedRoute, private contactService: ContactService, private snackbar: MatSnackBar,
-              private toolbar: ToolbarService, private dialog: MatDialog) {
+              private toolbar: ToolbarService, private dialog: MatDialog, private dialogService: DialogService) {
     this.contact = new Contact();
     this.email = new FormControl('', [Validators.required, Validators.email]);
     this.editingEnabled = false;
@@ -48,20 +49,22 @@ export class ContactDetailComponent implements OnInit {
 
 
     }, error => {
-      // this.route.navigate(['/contacts']);
+      this.dialogService.openErrorDialog('Something went wrong');
     });
 
   }
 
-  onSave() {
+  onSave(): void {
     console.log('ContactDetailComponent: onSave');
     const contactId = this.router.snapshot.paramMap.get('id');
     if (contactId != null) {
       this.contactService.editContact(this.contact).subscribe(result => {
-       this.contact = result;
-        this.snackbar.open('Contact edited!', 'OK', {
-          duration: 3000
+        this.route.navigate(['/contacts']);
+       return this.contact = result;
       });
+
+      this.snackbar.open('Contact edited!', 'OK', {
+        duration: 3000
       });
     } else {
       this.contactService.addContact(this.contact).subscribe(result => {
@@ -77,6 +80,10 @@ export class ContactDetailComponent implements OnInit {
     return this.email.hasError('required') ? 'You must enter a value' :
       this.email.hasError('email') ? 'Not a valid value' :
         '';
+  }
+
+  onFileselected(event) {
+    console.log(event);
   }
 
 

@@ -67,7 +67,7 @@ dialogConfig.autoFocus = true;
   }
 
   onMapclick() {
-    console.log('CliCKED MAP')
+    console.log('CliCKED MAP');
     this.route.navigate(['contacts/map', {address: this.contact.streetAddress, city: this.contact.city}]);
   }
 

@@ -33,6 +33,8 @@ import {ContactLocalStorageService} from './contact/service/contact-local-storag
 import { ContactHttpService } from './contact/service/contact-http.service';
 import { ContactMapComponent } from './contact/contact-map/contact-map.component';
 import { SafeUrlPipe } from './contact/Pipes/safe-url.pipe';
+import { ContactFileuploadComponent } from './contact/contact-fileupload/contact-fileupload.component';
+import { ErrorDialogComponent } from './contact/error-dialog/error-dialog.component';
 
 const appRoutes: Routes = [
   {path: 'contacts', component: ContactListComponent},
@@ -54,7 +56,9 @@ const appRoutes: Routes = [
     ContactDetailComponent,
     ConfirmDialogComponent,
     ContactMapComponent,
-    SafeUrlPipe
+    SafeUrlPipe,
+    ContactFileuploadComponent,
+    ErrorDialogComponent
   ],
   imports: [
     BrowserModule,
