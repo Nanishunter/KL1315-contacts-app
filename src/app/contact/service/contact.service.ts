@@ -14,7 +14,8 @@ export class ContactService {
   contacts: Contact[];
   contact: Contact;
 
-  constructor(private localStorage: ContactLocalStorageService, private contacthttpService: ContactHttpService, private contactProvider: ContactProvider) {
+  constructor(private localStorage: ContactLocalStorageService, private contacthttpService:
+    ContactHttpService, private contactProvider: ContactProvider) {
     this.contacts = [];
 
     this.contacts.push(new Contact(1, 'Antti', 'Karjalainen', 'Hietasenkatu 16', 'Mikkeli',
@@ -58,5 +59,8 @@ export class ContactService {
 
   editContact(contact: Contact): Observable<Contact> {
     return this.contactProvider.edit(contact);
+  }
+  getFiltered(value: string): Observable<Contact[]> {
+    return this.contactProvider.getFiltered(value);
   }
 }

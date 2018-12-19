@@ -1,4 +1,13 @@
+<div class="bar-search">
 
+
+  <mat-form-field>
+    <input type="text" #box matInput placeholder="Search" (keyup)="filterContacts(box.value);">
+    <mat-icon matPrefix>search</mat-icon>
+  </mat-form-field>
+
+
+</div>
 
 <div fxLayout="row">
 

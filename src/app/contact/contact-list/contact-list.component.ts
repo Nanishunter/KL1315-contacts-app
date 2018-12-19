@@ -16,6 +16,8 @@ import {ToolbarOptions} from '../../ui/toolbar/toolbar/toolbar-options';
 export class ContactListComponent implements OnInit {
 
   contacts: Contact[];
+  p: any;
+ values = '';
 
 
   constructor(private contactService: ContactService,
@@ -56,4 +58,13 @@ this.contacts = result;
 
 
   }
+
+  filterContacts(value: string) {
+    this.values += value;
+    this.contactService.getFiltered(value).subscribe(result => {
+      this.contacts = result;
+    });
+  }
 }
+
+

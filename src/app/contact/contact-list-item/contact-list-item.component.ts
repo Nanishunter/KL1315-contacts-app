@@ -37,7 +37,7 @@ dialogConfig.autoFocus = true;
 
     dialogRef.afterClosed().subscribe(result => {
       if (result)
-     {
+   {
         this.contactService.deleteContact(this.contact).subscribe( () => {
           this.snackbar.open('Contact successfully deleted', 'OK', {duration: 3000});
         });

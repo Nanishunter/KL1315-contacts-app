@@ -47,6 +47,11 @@ create(contact: Contact): Observable<Contact> {
  }));
 }
 
+getFiltered(value: string): Observable<Contact[]> {
+  return this.httpClient.get<Contact[]>(`${this.url}?q=${value}`);
+}
+
+
 
    }
 

@@ -23,6 +23,10 @@ export class ContactLocalStorageService implements ContactProvider {
     this.contacts = JSON.parse(storageElement);
   }
 
+  get(): Observable<Contact[]> {
+    return of(this.contacts);
+  }
+
   getContacts(): Observable<Contact[]> {
     return of(this.contacts);
 
@@ -79,5 +83,18 @@ export class ContactLocalStorageService implements ContactProvider {
 
   return of(contact);
   }
+
+  getFiltered(value: string): Observable<Contact[]> {
+    if (value) {
+      const filtered = this.contacts.filter(contact => contact.firstName.toLowerCase().includes(value)
+        || contact.lastName.toLowerCase().includes(value)
+       || contact.city.toLowerCase().includes(value) || contact.streetAddress.toLowerCase().includes(value));
+      return of(filtered);
+    }
+    if (!value) {
+      return this.get();
+    }
+  }
+
 
 }
