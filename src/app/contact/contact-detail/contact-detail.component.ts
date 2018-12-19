@@ -59,13 +59,16 @@ export class ContactDetailComponent implements OnInit {
     const contactId = this.router.snapshot.paramMap.get('id');
     if (contactId != null) {
       this.contactService.editContact(this.contact).subscribe(result => {
+
         this.route.navigate(['/contacts']);
        return this.contact = result;
       });
 
+
       this.snackbar.open('Contact edited!', 'OK', {
         duration: 3000
       });
+      this.route.navigate(['/contacts']);
     } else {
       this.contactService.addContact(this.contact).subscribe(result => {
         this.snackbar.open('Contact created!', 'OK', {
