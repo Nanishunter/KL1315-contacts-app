@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material';
 import { DialogService } from './../service/dialog.service';
 import {Component, OnInit} from '@angular/core';
 import {Contact} from '../contact';
@@ -22,7 +23,7 @@ export class ContactListComponent implements OnInit {
 
   constructor(private contactService: ContactService,
               private route: Router, private router: ActivatedRoute, private toolbar:
-               ToolbarService, private dialogService: DialogService) {
+               ToolbarService, private dialogService: DialogService, private snackbar: MatSnackBar) {
 
 
   }
@@ -36,6 +37,8 @@ export class ContactListComponent implements OnInit {
     */
     this.contactService.getContacts().subscribe(result => {
       this.contacts = result;
+      this.snackbar.open('You can start by adding a contact by pressing the + icon on the right.', 'OK', {
+        duration: 3000 });
     });
   }
 
