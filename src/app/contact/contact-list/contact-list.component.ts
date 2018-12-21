@@ -37,8 +37,6 @@ export class ContactListComponent implements OnInit {
     */
     this.contactService.getContacts().subscribe(result => {
       this.contacts = result;
-      this.snackbar.open('You can start by adding a contact by pressing the + icon on the right.', 'OK', {
-        duration: 3000 });
     });
   }
 
