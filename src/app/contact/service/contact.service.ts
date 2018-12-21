@@ -3,7 +3,7 @@ import {Contact} from '../contact';
 import {Observable} from 'rxjs';
 import {ContactLocalStorageService} from './contact-local-storage.service';
 import {ContactHttpService } from './contact-http.service';
-import {ContactProvider} from '../interfaces/contact-provider'
+import {ContactProvider} from '../interfaces/contact-provider';
 
 
 @Injectable({
@@ -51,7 +51,6 @@ export class ContactService {
     return this.contactProvider.getById(id);
 
   }
-
 
   addContact(contact: Contact): Observable<Contact> {
     return this.contactProvider.create(contact);

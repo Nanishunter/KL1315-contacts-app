@@ -17,7 +17,7 @@ export class ContactListComponent implements OnInit {
 
   contacts: Contact[];
   p: any;
- values = '';
+  values = '';
 
 
   constructor(private contactService: ContactService,
@@ -66,5 +66,3 @@ this.contacts = result;
     });
   }
 }
-
-

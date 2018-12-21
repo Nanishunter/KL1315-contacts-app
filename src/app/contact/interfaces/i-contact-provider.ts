@@ -7,4 +7,5 @@ export interface IContactProvider {
     edit(contact: Contact): Observable<Contact>;
     create(contact: Contact): Observable<Contact>;
     deleteContact(contact: Contact): Observable<any>;
+    getFiltered(value: string): Observable<Contact[]>;
 }

@@ -1,9 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Contact} from '../contact';
-import {MatSnackBar} from '@angular/material';
 import { ContactProvider } from '../interfaces/contact-provider';
 import {Observable, of} from 'rxjs';
-import { analyzeAndValidateNgModules, NullTemplateVisitor } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -86,13 +84,17 @@ export class ContactLocalStorageService implements ContactProvider {
 
   getFiltered(value: string): Observable<Contact[]> {
     if (value) {
-      const filtered = this.contacts.filter(contact => contact.firstName.toLowerCase().includes(value)
-        || contact.lastName.toLowerCase().includes(value)
-       || contact.city.toLowerCase().includes(value) || contact.streetAddress.toLowerCase().includes(value));
+      console.log(value);
+      const filtered = this.contacts.filter(contact => contact.firstName.toLowerCase().includes(value) ||
+      contact.lastName.toLowerCase().includes(value) ||
+      contact.city.toLowerCase().includes(value));
+
+       console.log(value);
       return of(filtered);
     }
     if (!value) {
       return this.get();
+
     }
   }
 

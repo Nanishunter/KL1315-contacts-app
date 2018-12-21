@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {ContactProvider} from './contact/interfaces/contact-provider';
 import {environment} from '../environments/environment';
 import {ConfirmDialogComponent} from './contact/dialog/confirm-dialog/confirm-dialog.component' ;
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import {
   MatButtonModule,
@@ -78,7 +79,8 @@ const appRoutes: Routes = [
     FlexLayoutModule,
     MatDialogModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    NgxPaginationModule,
 
   ],
   entryComponents: [ConfirmDialogComponent],

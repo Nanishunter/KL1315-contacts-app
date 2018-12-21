@@ -1,7 +1,7 @@
-import {IContactProvider} from './i-contact-provider'
+import {IContactProvider} from './i-contact-provider';
 import {Observable} from 'rxjs';
 import {Contact} from '../contact';
-export abstract class ContactProvider implements IContactProvider{
+export abstract class ContactProvider implements IContactProvider {
 
     abstract getContacts(): Observable<Contact[]>;
     abstract getById(id: string): Observable<Contact>;
