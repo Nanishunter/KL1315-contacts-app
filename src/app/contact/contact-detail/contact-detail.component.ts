@@ -34,24 +34,26 @@ export class ContactDetailComponent implements OnInit {
 
 
   ngOnInit() {
-    this.toolbar.setToolbarOptions(new ToolbarOptions('back', 'Edit contact'));
     const contactId = this.router.snapshot.paramMap.get('id');
-    // Get contact by id
-    /*
-    if (this.contactService.getContactById(contactId) != null) {
+    if (contactId != null) {
       this.toolbar.setToolbarOptions(new ToolbarOptions('back', 'Edit contact'));
+      /*
+      if (this.contactService.getContactById(contactId) !== undefined) {
+        this.contact = this.contactService.getContactById(contactId);
+      } else {
+        this.router.navigate(['/contacts']);
+      }
+      */
+
+      this.contactService.getContactById(contactId).subscribe(result => {
+        this.contact = result;
+      }, error => {
+        console.log(error);
+        this.route.navigate(['/contacts']);
+      });
     } else {
       this.toolbar.setToolbarOptions(new ToolbarOptions('back', 'Create contact'));
-      // contactia ei löytynyt, ohjataan kontakti näkymään
-    }*/
-    this.contactService.getContactById(contactId).subscribe(result => {
-      this.contact = result;
-
-
-    }, error => {
-      this.dialogService.openErrorDialog('Something went wrong');
-    });
-
+    }
   }
 
   onSave(): void {
