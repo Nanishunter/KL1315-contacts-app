@@ -1,0 +1,14 @@
+C:\Users\Antti Karjalainen\Desktop\Koulu\KL1315-contacts-app\WebAPI\ContactsWebApp\ContactsWebApp\bin\Debug\netcoreapp2.2\ContactsWebApp.deps.json
+C:\Users\Antti Karjalainen\Desktop\Koulu\KL1315-contacts-app\WebAPI\ContactsWebApp\ContactsWebApp\bin\Debug\netcoreapp2.2\ContactsWebApp.runtimeconfig.json
+C:\Users\Antti Karjalainen\Desktop\Koulu\KL1315-contacts-app\WebAPI\ContactsWebApp\ContactsWebApp\bin\Debug\netcoreapp2.2\ContactsWebApp.runtimeconfig.dev.json
+C:\Users\Antti Karjalainen\Desktop\Koulu\KL1315-contacts-app\WebAPI\ContactsWebApp\ContactsWebApp\bin\Debug\netcoreapp2.2\ContactsWebApp.dll
+C:\Users\Antti Karjalainen\Desktop\Koulu\KL1315-contacts-app\WebAPI\ContactsWebApp\ContactsWebApp\obj\Debug\netcoreapp2.2\ContactsWebApp.csprojAssemblyReference.cache
+C:\Users\Antti Karjalainen\Desktop\Koulu\KL1315-contacts-app\WebAPI\ContactsWebApp\ContactsWebApp\obj\Debug\netcoreapp2.2\ContactsWebApp.csproj.CoreCompileInputs.cache
+C:\Users\Antti Karjalainen\Desktop\Koulu\KL1315-contacts-app\WebAPI\ContactsWebApp\ContactsWebApp\obj\Debug\netcoreapp2.2\ContactsWebApp.RazorAssemblyInfo.cache
+C:\Users\Antti Karjalainen\Desktop\Koulu\KL1315-contacts-app\WebAPI\ContactsWebApp\ContactsWebApp\obj\Debug\netcoreapp2.2\ContactsWebApp.RazorAssemblyInfo.cs
+C:\Users\Antti Karjalainen\Desktop\Koulu\KL1315-contacts-app\WebAPI\ContactsWebApp\ContactsWebApp\obj\Debug\netcoreapp2.2\ContactsWebApp.AssemblyInfoInputs.cache
+C:\Users\Antti Karjalainen\Desktop\Koulu\KL1315-contacts-app\WebAPI\ContactsWebApp\ContactsWebApp\obj\Debug\netcoreapp2.2\ContactsWebApp.AssemblyInfo.cs
+C:\Users\Antti Karjalainen\Desktop\Koulu\KL1315-contacts-app\WebAPI\ContactsWebApp\ContactsWebApp\obj\Debug\netcoreapp2.2\ContactsWebApp.RazorTargetAssemblyInfo.cache
+C:\Users\Antti Karjalainen\Desktop\Koulu\KL1315-contacts-app\WebAPI\ContactsWebApp\ContactsWebApp\bin\Debug\netcoreapp2.2\ContactsWebApp.pdb
+C:\Users\Antti Karjalainen\Desktop\Koulu\KL1315-contacts-app\WebAPI\ContactsWebApp\ContactsWebApp\obj\Debug\netcoreapp2.2\ContactsWebApp.dll
+C:\Users\Antti Karjalainen\Desktop\Koulu\KL1315-contacts-app\WebAPI\ContactsWebApp\ContactsWebApp\obj\Debug\netcoreapp2.2\ContactsWebApp.pdb
