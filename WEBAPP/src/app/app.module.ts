@@ -6,7 +6,6 @@ import { ContactListItemComponent } from './contact/contact-list-item/contact-li
 import {ContactService} from './contact/service/contact.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToolbarComponent } from './ui/toolbar/toolbar/toolbar.component';
-import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatDialogModule} from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
 import {ContactProvider} from './contact/interfaces/contact-provider';
@@ -62,7 +61,7 @@ const appRoutes: Routes = [
     ErrorDialogComponent
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
@@ -76,11 +75,11 @@ const appRoutes: Routes = [
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    FlexLayoutModule,
     MatDialogModule,
     HttpClientModule,
     MatDialogModule,
     NgxPaginationModule,
+
 
   ],
   entryComponents: [ConfirmDialogComponent],
